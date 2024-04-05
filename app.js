@@ -31,3 +31,13 @@ const add = (arrOfNums) => {
 
   return sum;
 }
+
+const subtract = (arrOfNums) => {
+  let difference = arrOfNums[0];
+
+  for (let num = 1; num < arrOfNums.length; num++) {
+    difference -= arrOfNums[num];
+  }
+
+  return difference;
+}
