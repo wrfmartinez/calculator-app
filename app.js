@@ -62,6 +62,22 @@ const divide = (arrOfNums) => {
   return quotient;
 }
 
+const displayAddition = () => {
+  display.textContent = add(storedNumbers.storedNumbersToAdd);
+}
+
+const displaySubraction = () => {
+  display.textContent = subtract(storedNumbers.storedNumbersToSubtract);
+}
+
+const displayMultiplication = () => {
+  display.textContent = multiply(storedNumbers.storedNumbersToMultiply);
+}
+
+const displayDivison = () => {
+  display.textContent = divide(storedNumbers.storedNumbersToDivide);
+}
+
 /*--------------------------- Event Listeners ---------------------------*/
 for (number of numbers) {
   number.addEventListener('click', (event) => {
@@ -101,6 +117,19 @@ for (number of numbers) {
       storedNumbers.storedNumbersToDivide.push(Number(numberState));
       display.textContent = Number('0');
       numberState = '';
+    }
+
+    // EQUALS EVENT LISTENER
+    if (event.target.textContent === '=') {
+      if (storedNumbers.storedNumbersToAdd.length > 0) {
+        displayAddition();
+      } else if (storedNumbers.storedNumbersToSubtract.length > 0) {
+        displaySubraction();
+      } else if (storedNumbers.storedNumbersToMultiply.length > 0) {
+        displayMultiplication();
+      } else if (storedNumbers.storedNumbersToDivide.length > 0) {
+        displayDivison();
+      }
     }
 
     // Displays operations
