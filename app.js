@@ -82,6 +82,13 @@ for (number of numbers) {
       numberState = '';
     }
 
+    // SUBTRACTION EVENT LISTENER
+    if (event.target.textContent === '-') {
+      storedNumbers.storedNumbersToSubtract.push(Number(numberState));
+      display.textContent = Number('0');
+      numberState = '';
+    }
+
     // Displays operations
     for (let i = 0; i <= 9; i++) {
       if (Number(event.target.textContent) === i) {
