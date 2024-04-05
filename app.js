@@ -52,3 +52,12 @@ const multiply = (arrOfNums) => {
   return product;
 }
 
+const divide = (arrOfNums) => {
+  let quotient = arrOfNums[0];
+
+  for (let num = 1; num < arrOfNums.length; num++) {
+    quotient /= arrOfNums[num];
+  }
+
+  return quotient;
+}
