@@ -41,3 +41,14 @@ const subtract = (arrOfNums) => {
 
   return difference;
 }
+
+const multiply = (arrOfNums) => {
+  let product = 1;
+
+  for (let num = 0; num < arrOfNums.length; num++) {
+    product *= arrOfNums[num];
+  }
+
+  return product;
+}
+
