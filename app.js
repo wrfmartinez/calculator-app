@@ -75,6 +75,13 @@ for (number of numbers) {
       storedNumbers.storedNumbersToDivide = []
     }
 
+    // ADDITION EVENT LISTENER
+    if (event.target.textContent === '+') {
+      storedNumbers.storedNumbersToAdd.push(Number(numberState));
+      display.textContent = Number('0');
+      numberState = '';
+    }
+
     // Displays operations
     for (let i = 0; i <= 9; i++) {
       if (Number(event.target.textContent) === i) {
