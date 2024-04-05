@@ -65,6 +65,16 @@ const divide = (arrOfNums) => {
 /*--------------------------- Event Listeners ---------------------------*/
 for (number of numbers) {
   number.addEventListener('click', (event) => {
+     // Clears the state of the calculator and resets to 0
+     if (event.target.textContent === 'C') {
+      numberState = '';
+      display.textContent = Number('0');
+      storedNumbers.storedNumbersToAdd = [];
+      storedNumbers.storedNumbersToSubtract = [];
+      storedNumbers.storedNumbersToMultiply = []
+      storedNumbers.storedNumbersToDivide = []
+    }
+
     // Displays operations
     for (let i = 0; i <= 9; i++) {
       if (Number(event.target.textContent) === i) {
