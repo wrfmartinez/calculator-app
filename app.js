@@ -61,3 +61,16 @@ const divide = (arrOfNums) => {
 
   return quotient;
 }
+
+/*--------------------------- Event Listeners ---------------------------*/
+for (number of numbers) {
+  number.addEventListener('click', (event) => {
+    // Displays operations
+    for (let i = 0; i <= 9; i++) {
+      if (Number(event.target.textContent) === i) {
+        numberState += i;
+        display.textContent = numberState;
+      }
+    }
+  })
+}
