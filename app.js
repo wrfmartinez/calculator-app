@@ -96,6 +96,13 @@ for (number of numbers) {
       numberState = '';
     }
 
+    // DIVISION EVENT LISTENER
+    if (event.target.textContent === '/') {
+      storedNumbers.storedNumbersToDivide.push(Number(numberState));
+      display.textContent = Number('0');
+      numberState = '';
+    }
+
     // Displays operations
     for (let i = 0; i <= 9; i++) {
       if (Number(event.target.textContent) === i) {
