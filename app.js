@@ -78,60 +78,68 @@ const displayDivison = () => {
   display.textContent = divide(storedNumbers.storedNumbersToDivide);
 }
 
+const updateCalculator = () => {
+  // Clears the state of the calculator and resets to 0
+  if (event.target.textContent === 'C') {
+    numberState = '';
+    display.textContent = Number('0');
+    storedNumbers.storedNumbersToAdd = [];
+    storedNumbers.storedNumbersToSubtract = [];
+    storedNumbers.storedNumbersToMultiply = []
+    storedNumbers.storedNumbersToDivide = []
+  }
+
+  // ADDITION EVENT LISTENER
+  if (event.target.textContent === '+') {
+    storedNumbers.storedNumbersToAdd.push(Number(numberState));
+    display.textContent = Number('0');
+    numberState = '';
+  }
+
+  // SUBTRACTION EVENT LISTENER
+  if (event.target.textContent === '-') {
+    storedNumbers.storedNumbersToSubtract.push(Number(numberState));
+    display.textContent = Number('0');
+    numberState = '';
+  }
+
+  // MULTIPLICATION EVENT LISTENER
+  if (event.target.textContent === '*') {
+    storedNumbers.storedNumbersToMultiply.push(Number(numberState));
+    display.textContent = Number('0');
+    numberState = '';
+  }
+
+  // DIVISION EVENT LISTENER
+  if (event.target.textContent === '/') {
+    storedNumbers.storedNumbersToDivide.push(Number(numberState));
+    display.textContent = Number('0');
+    numberState = '';
+  }
+
+  // EQUALS EVENT LISTENER
+  if (event.target.textContent === '=') {
+    if (storedNumbers.storedNumbersToAdd.length >= 1) {
+      storedNumbers.storedNumbersToAdd.push(Number(display.textContent));
+      displayAddition();
+    } else if (storedNumbers.storedNumbersToSubtract.length >= 1) {
+      storedNumbers.storedNumbersToSubtract.push(Number(display.textContent));
+      displaySubraction();
+    } else if (storedNumbers.storedNumbersToMultiply.length >= 1) {
+      storedNumbers.storedNumbersToMultiply.push(Number(display.textContent));
+      displayMultiplication();
+    } else if (storedNumbers.storedNumbersToDivide.length >= 1) {
+      storedNumbers.storedNumbersToDivide.push(Number(display.textContent));
+      displayDivison();
+    }
+  }
+}
+
 /*--------------------------- Event Listeners ---------------------------*/
 for (number of numbers) {
-  number.addEventListener('click', (event) => {
-     // Clears the state of the calculator and resets to 0
-     if (event.target.textContent === 'C') {
-      numberState = '';
-      display.textContent = Number('0');
-      storedNumbers.storedNumbersToAdd = [];
-      storedNumbers.storedNumbersToSubtract = [];
-      storedNumbers.storedNumbersToMultiply = []
-      storedNumbers.storedNumbersToDivide = []
-    }
-
-    // ADDITION EVENT LISTENER
-    if (event.target.textContent === '+') {
-      storedNumbers.storedNumbersToAdd.push(Number(numberState));
-      display.textContent = Number('0');
-      numberState = '';
-    }
-
-    // SUBTRACTION EVENT LISTENER
-    if (event.target.textContent === '-') {
-      storedNumbers.storedNumbersToSubtract.push(Number(numberState));
-      display.textContent = Number('0');
-      numberState = '';
-    }
-
-    // MULTIPLICATION EVENT LISTENER
-    if (event.target.textContent === '*') {
-      storedNumbers.storedNumbersToMultiply.push(Number(numberState));
-      display.textContent = Number('0');
-      numberState = '';
-    }
-
-    // DIVISION EVENT LISTENER
-    if (event.target.textContent === '/') {
-      storedNumbers.storedNumbersToDivide.push(Number(numberState));
-      display.textContent = Number('0');
-      numberState = '';
-    }
-
-    // EQUALS EVENT LISTENER
-    if (event.target.textContent === '=') {
-      if (storedNumbers.storedNumbersToAdd.length > 0) {
-        displayAddition();
-      } else if (storedNumbers.storedNumbersToSubtract.length > 0) {
-        displaySubraction();
-      } else if (storedNumbers.storedNumbersToMultiply.length > 0) {
-        displayMultiplication();
-      } else if (storedNumbers.storedNumbersToDivide.length > 0) {
-        displayDivison();
-      }
-    }
-
+  number.addEventListener('click', (event) => {    
+    updateCalculator();
+    
     // Displays operations
     for (let i = 0; i <= 9; i++) {
       if (Number(event.target.textContent) === i) {
